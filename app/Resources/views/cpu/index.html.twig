@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <h1>Cpu list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cpu in cpus %}
+            <tr>
+                <td><a href="{{ path('cpu_show', { 'id': cpu.id }) }}">{{ cpu.id }}</a></td>
+                <td>{{ cpu.brand }}</td>
+                <td>{{ cpu.name }}</td>
+                <td>{{ cpu.score }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cpu_show', { 'id': cpu.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cpu_edit', { 'id': cpu.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cpu_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+            {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}

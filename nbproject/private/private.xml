@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/wir/wir/src/AppBundle/Controller/PcController.php</file>
+            <file>file:/E:/wir/wir/src/AppBundle/Form/CpuType.php</file>
+            <file>file:/E:/wir/wir/app/Resources/views/cpu/new.html.twig</file>
+            <file>file:/E:/wir/wir/app/Resources/views/base.html.twig</file>
+            <file>file:/E:/wir/wir/app/Resources/views/default/index.html.twig</file>
+            <file>file:/E:/wir/wir/src/AppBundle/Entity/Pc.php</file>
+            <file>file:/E:/wir/wir/app/Resources/views/cpu/index.html.twig</file>
+            <file>file:/E:/wir/wir/src/AppBundle/Controller/CpuController.php</file>
+            <file>file:/E:/wir/wir/src/AppBundle/Form/PcType.php</file>
+        </group>
+    </open-files>
+</project-private>

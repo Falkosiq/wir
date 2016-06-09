@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pc list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cpu</th>
+                <th>Gpu</th>
+                <th>Ram</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pc in pcs %}
+            <tr>
+                <td><a href="{{ path('pc_show', { 'id': pc.id }) }}">{{ pc.id }}</a></td>
+                <td>{{ pc.cpu }}</td>
+                <td>{{ pc.gpu }}</td>
+                <td>{{ pc.ram }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pc_show', { 'id': pc.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('pc_edit', { 'id': pc.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pc_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

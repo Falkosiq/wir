@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gpu list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gpu in gpus %}
+            <tr>
+                <td><a href="{{ path('gpu_show', { 'id': gpu.id }) }}">{{ gpu.id }}</a></td>
+                <td>{{ gpu.brand }}</td>
+                <td>{{ gpu.name }}</td>
+                <td>{{ gpu.score }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('gpu_show', { 'id': gpu.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('gpu_edit', { 'id': gpu.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('gpu_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

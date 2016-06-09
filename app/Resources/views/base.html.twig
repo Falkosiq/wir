@@ -2,12 +2,102 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Will it run?{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+            <style>
+                body { background: url({{ asset('images/bg.jpg') }}); font: 18px/1.5 sans-serif; }
+                h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+                h1 { font-size: 36px; }
+                h2 { font-size: 21px; margin-bottom: 1em; }
+                p { margin: 0 0 1em 0; }
+                a { color: #0000F0; }
+                a:hover { text-decoration: none; }
+                a:visited { text-decoration: none; }
+                a:active { text-decoration: none; }
+                a:focus { text-decoration: none; }
+                code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+                #wrapper { background: rgba(255,255,255,0.85); border-radius: 25px; margin: 1em auto; max-width: 1920px; width: 95%;}
+                #container { padding: 2em; }
+                #welcome, #status { margin-bottom: 2em; }
+                #welcome h1 span { display: block; font-size: 75%; }
+                #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+                #icon-book { display: none; }
+
+                @media (min-width: 768px) {
+                    #wrapper { width: 80%; margin: 2em auto; }
+                    #icon-book { display: inline-block; }
+                    #status a, #next a { display: block; }
+
+                    @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+                    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+                    .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+                }
+
+                #status a{
+                    display:inline;
+                    color:#fff;
+                }
+
+                #status a:hover{
+                    color:#c0c0c0;
+                }
+
+                #logs{
+                    list-style-type: none;
+                    float:right;
+                }
+
+                #logs li{
+                    display:inline-block;
+                }
+
+                #logs li a{
+                    display:block;
+                    border-radius: 5px;
+                    color:#fff;
+                    padding: 10px 16px;
+                    background-color:#333;
+                }
+
+                #logs li a:hover{
+                    color:#fff;
+                    background-color:#111;
+                }
+            </style>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        <div id="wrapper">
+        <div id="container" class="row">
+            <div id="welcome" class="col-md-4">
+                <img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="Will it RUN?" />
+            </div>
+
+            <div id="status" class="col-md-8">
+                <ul id="logs">
+                    {% if not app.user %}
+                    <li>
+                        <a href='{{ path('fos_user_security_login') }}'>Sign in</a>
+                    </li>
+                    <li>
+                        <a href='{{ path('fos_user_registration_register') }}'>Sign up</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href='{{ path('fos_user_security_logout') }}'>Logout</a>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
