@@ -84,7 +84,7 @@ class Pc
      * @param integer $gpu
      * @return Pc
      */
-    public function setGpu($gpu)
+    public function setGpu(Gpu $gpu)
     {
         $this->gpu = $gpu;
 
