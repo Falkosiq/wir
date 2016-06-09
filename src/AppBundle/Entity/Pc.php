@@ -34,6 +34,7 @@ class Pc
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Gpu")
+     * @ORM\JoinColumn(name="gpu_id", referencedColumnName="id")
      */
     private $gpu;
 
@@ -41,7 +42,6 @@ class Pc
      * @var int
      *
      * @ORM\Column(name="ram", type="integer")
-     * @ORM\JoinColumn(name="gpu_id", referencedColumnName="id")
      */
     private $ram;
 

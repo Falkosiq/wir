@@ -31,14 +31,16 @@ class Game
     /**
      * @var int
      *
-     * @ORM\Column(name="min_pc", type="bigint")
+     * @ORM\ManyToOne(targetEntity="Pc")
+     * @ORM\JoinColumn(name="pc_id", referencedColumnName="id")
      */
     private $minPc;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="rec_pc", type="bigint")
+     * @ORM\ManyToOne(targetEntity="Pc")
+     * @ORM\JoinColumn(name="pc_id", referencedColumnName="id")
      */
     private $recPc;
 
