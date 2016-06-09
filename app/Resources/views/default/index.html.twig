@@ -6,6 +6,13 @@
 
 {% block content %}
     <h1>Dzień dobry!</h1>
+    {% if app.user %}
+        <ul>
+            <li><a href="cpu">Manage CPUs</a> </li>
+            <li><a href="gpu">Manage GPUs</a> </li>
+            <li><a href="pc">Manage PCs</a> </li>
+        </ul>
+    {% endif %}
 {% endblock %}    
     
 {% block stylesheets %}

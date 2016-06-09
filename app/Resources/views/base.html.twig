@@ -73,7 +73,7 @@
         <div id="wrapper">
         <div id="container" class="row">
             <div id="welcome" class="col-md-4">
-                <img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="Will it RUN?" />
+                <a href = "{{ path('homepage') }}" ><img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="Will it RUN?" /></a>
             </div>
 
             <div id="status" class="col-md-8">
@@ -86,6 +86,9 @@
                         <a href='{{ path('fos_user_registration_register') }}'>Sign up</a>
                     </li>
                     {% else %}
+                    <li>
+                        {{ app.user.username }}
+                    </li>
                     <li>
                         <a href='{{ path('fos_user_security_logout') }}'>Logout</a>
                     </li>

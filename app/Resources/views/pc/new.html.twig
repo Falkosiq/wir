@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
     <h1>Pc creation</h1>
 
     {{ form_start(form) }}
