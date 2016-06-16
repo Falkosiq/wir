@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    {% if msg %}
+        {{ msg }}
+    {% else %}
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>PC</th>   
+                    <td>Yours</td>
+                    <td>Minimum</td>
+                    <td>Recommended</td>
+                </tr>
+                <tr>
+                    <th>Cpu</th>
+                    <td>{{ userPc.cpu }}</td>
+                    <td>{{ gameMinPc.cpu }}</td>
+                    <td>{{ gameRecPc.cpu }}</td>
+                </tr>
+                <tr>
+                    <th>Gpu</th>
+                    <td>{{ userPc.gpu }}</td>
+                    <td>{{ gameMinPc.gpu }}</td>
+                    <td>{{ gameRecPc.gpu }}</td>
+                </tr>
+                <tr>
+                    <th>Ram</th>
+                    <td>{{ userPc.ram }}</td>
+                    <td>{{ gameMinPc.ram }}</td>
+                    <td>{{ gameRecPc.ram }}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% if wir %}
+           {{ gameName }} will run on your PC.
+        {% else %}
+           {{ gameName }} won't run on your PC.
+        {% endif %}
+    {% endif %}
+{% endblock %}

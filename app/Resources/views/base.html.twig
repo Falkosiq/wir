@@ -12,7 +12,7 @@
                 h2 { font-size: 21px; margin-bottom: 1em; }
                 p { margin: 0 0 1em 0; }
                 a { color: #0000F0; }
-                a:hover { text-decoration: none; }
+                a:hover { text-decoration: none; color: #000;}
                 a:visited { text-decoration: none; }
                 a:active { text-decoration: none; }
                 a:focus { text-decoration: none; }
@@ -36,7 +36,7 @@
 
                 #status a{
                     display:inline;
-                    color:#fff;
+                    color:#000;
                 }
 
                 #status a:hover{
@@ -73,7 +73,7 @@
         <div id="wrapper">
         <div id="container" class="row">
             <div id="welcome" class="col-md-4">
-                <a href = "{{ path('homepage') }}" ><img src="{{ asset('images/logo.png') }}" class="img-responsive" alt="Will it RUN?" /></a>
+                <a href = "{{ path('homepage') }}" ><img src="{{ asset('images/logo.png') }}" class="img-responsive center-block" alt="Will it RUN?" /></a>
             </div>
 
             <div id="status" class="col-md-8">

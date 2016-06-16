@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Pc;
 use AppBundle\Form\PcType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Pc controller.
@@ -137,5 +138,16 @@ class PcController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    /**
+     * @Route("/mypc/", name="pc_my")
+     */
+    public function mypcAction()
+    {
+        $mypc = $this->getUser()->getPc();
+        dump($mypc);
+        return $this->render('pc/mypc.html.twig', array(
+            'mypc' => $mypc,
+        ));
     }
 }

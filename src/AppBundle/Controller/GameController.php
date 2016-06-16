@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Game;
 use AppBundle\Form\GameType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Game controller.
@@ -136,5 +137,45 @@ class GameController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    /**
+     * 
+     * @Route ("/compare/{id}", name="game_compare_pcs") 
+     * @Template
+     */
+    public function compareAction(Game $game)
+    {
+        
+        $userPc = $this->getUser()->getPc();
+        
+        $gameMinPc = $game->getMinPc();
+        $gameRecPc = $game->getRecPc();
+        $msg = "";
+        $wir = false;
+        if($userPc)
+        {
+            if($gameMinPc->getCpu()->getScore() <= $userPc->getCpu()->getScore())
+            {
+                if($gameMinPc->getGpu()->getScore() <= $userPc->getGpu()->getScore())
+                {
+                    if($gameMinPc->getRam() <= $userPc->getRam())
+                    {
+                        $wir=true;
+                    }
+                } 
+            }
+        }
+        else
+        {
+           $msg = "You haven't specified your PC"; 
+        }
+        return  $this->render('game/compare.html.twig', array(
+            "gameName"=>$game->getName(),
+            "userPc"=>$userPc,
+            "gameMinPc"=>$gameMinPc,
+            "gameRecPc"=>$gameRecPc,
+            "wir"=>$wir,
+            "msg"=>$msg,
+        ));
     }
 }

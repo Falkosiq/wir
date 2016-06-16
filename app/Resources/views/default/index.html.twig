@@ -8,10 +8,14 @@
     <h1>Dzień dobry!</h1>
     {% if app.user %}
         <ul>
-            <li><a href="cpu">Manage CPUs</a> </li>
-            <li><a href="gpu">Manage GPUs</a> </li>
-            <li><a href="pc">Manage PCs</a> </li>
-            <li><a href="game">Manage Games</a> </li>
+            {% if is_granted("ROLE_ADMIN") %}
+                <li><a href="cpu">Manage CPUs</a> </li>
+                <li><a href="gpu">Manage GPUs</a> </li>
+                <li><a href="pc">Manage PCs</a> </li>
+            {% endif %}
+            <li><a href="game">Games</a></li>
+            <li><a href="#">Tests</a></li>
+            <li><a href="{{ path("pc_my") }}">My PC</a></li>
         </ul>
     {% endif %}
 {% endblock %}    

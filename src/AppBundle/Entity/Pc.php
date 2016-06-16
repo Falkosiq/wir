@@ -124,6 +124,7 @@ class Pc
         return $this->ram;
     }
     
+    
     public function __toString()
     {
         return $this->cpu.' '.$this->gpu.' '.$this->ram.' GB';

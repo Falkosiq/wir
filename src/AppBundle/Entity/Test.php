@@ -103,8 +103,17 @@ class Test
     {
         return $this->game;
     }
+    public function getUser() 
+    {
+        return $this->user;
+    }
 
-    /**
+    public function setUser($user) 
+    {
+        $this->user = $user;
+    }
+
+        /**
      * Set pc
      *
      * @param integer $pc

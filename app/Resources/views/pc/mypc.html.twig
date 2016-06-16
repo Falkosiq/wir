@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    {% if mypc %}
+        <h1>My PC</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Cpu</th>
+                <td>{{ mypc.cpu }}</td>
+            </tr>
+            <tr>
+                <th>Gpu</th>
+                <td>{{ mypc.gpu }}</td>
+            </tr>
+            <tr>
+                <th>Ram</th>
+                <td>{{ mypc.ram }} GB</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('pc_edit', { 'id': mypc.id }) }}">Edit</a>
+    {% else %}
+    <a href="{{ path('pc_new') }}">New PC</a>
+    {% endif %}
+{% endblock %}
