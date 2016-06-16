@@ -48,8 +48,9 @@ class PcController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($pc);
+            $this->getUser()->setPc($pc);
             $em->flush();
-
+      
             return $this->redirectToRoute('pc_show', array('id' => $pc->getId()));
         }
 

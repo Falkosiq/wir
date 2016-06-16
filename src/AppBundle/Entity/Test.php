@@ -31,6 +31,13 @@ class Test
     /**
      * @var int
      *
+     * @ORM\Column(name="user", type="bigint")
+     */
+    private $user;
+    
+    /**
+     * @var int
+     *
      * @ORM\Column(name="pc", type="bigint")
      */
     private $pc;

@@ -32,7 +32,7 @@ class Game
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Pc")
-     * @ORM\JoinColumn(name="pc_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="min_pc_id", referencedColumnName="id")
      */
     private $minPc;
 
@@ -40,7 +40,7 @@ class Game
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Pc")
-     * @ORM\JoinColumn(name="pc_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="rec_pc_id", referencedColumnName="id")
      */
     private $recPc;
 
