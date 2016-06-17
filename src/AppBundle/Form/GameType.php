@@ -20,12 +20,16 @@ class GameType extends AbstractType
             ->add('minPc', EntityType::class, array(
                 'class' => 'AppBundle:Pc',
                 'placeholder' => 'Choose minimum Pc',
-                'choice_label' => 'cpu',
+                'choice_label' => function ($minPc) {
+                    return $minPc->__toString();
+                }
             ))
             ->add('recPc', EntityType::class, array(
                 'class' => 'AppBundle:Pc',
                 'placeholder' => 'Choose reuired Pc',
-                'choice_label' => 'cpu',
+                'choice_label' => function ($recPc) {
+                    return $recPc->__toString();
+                }
             ))
         ;
     }

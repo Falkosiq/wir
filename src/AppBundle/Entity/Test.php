@@ -23,22 +23,23 @@ class Test
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="game", type="bigint")
+     * @ORM\ManyToOne(targetEntity="Game")
+     * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
      */
     private $game;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="user", type="bigint")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
     
     /**
      * @var int
      *
-     * @ORM\Column(name="pc", type="bigint")
+     * @ORM\ManyToOne(targetEntity="Pc")
+     * @ORM\JoinColumn(name="pc_id", referencedColumnName="id")
      */
     private $pc;
 

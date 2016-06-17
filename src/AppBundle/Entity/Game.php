@@ -123,4 +123,9 @@ class Game
     {
         return $this->recPc;
     }
+    
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

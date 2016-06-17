@@ -19,12 +19,16 @@ class PcType extends AbstractType
             ->add('cpu', EntityType::class, array(
                 'class' => 'AppBundle:Cpu',
                 'placeholder' => 'Choose a Cpu',
-                'choice_label' => 'name',
+                'choice_label' => function ($cpu) {
+                    return $cpu->__toString();
+                }
             ))
             ->add('gpu', EntityType::class, array(
                 'class' => 'AppBundle:Gpu',
                 'placeholder' => 'Choose a Gpu',
-                'choice_label' => 'name',
+                'choice_label' => function ($gpu) {
+                    return $gpu->__toString();
+                }
             ))
             ->add('ram')
         ;
