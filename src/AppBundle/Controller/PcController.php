@@ -7,8 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Pc;
-use AppBundle\Form\PcType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Pc controller.

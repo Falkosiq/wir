@@ -23,8 +23,9 @@
             </tr>
         </tbody>
     </table>
-    <a href="{{ path('pc_edit', { 'id': mypc.id }) }}">Edit</a>
+    <a href="{{ path('pc_new') }}">New PC</a>
     {% else %}
+        You haven't specified your PC<br>
     <a href="{{ path('pc_new') }}">New PC</a>
     {% endif %}
 {% endblock %}
