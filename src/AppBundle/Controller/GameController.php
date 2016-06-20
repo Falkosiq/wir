@@ -27,8 +27,8 @@ class GameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $games = $em->getRepository('AppBundle:Game')->findAll();
-
+        $games = $em->getRepository('AppBundle:Game')->findInOrderByMinPc();  
+        
         return $this->render('game/index.html.twig', array(
             'games' => $games,
         ));

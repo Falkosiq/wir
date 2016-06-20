@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class TestRepository extends EntityRepository
 {
+    public function findNumberOfTests()
+    {
+        $qb = $this->createQueryBuilder('t')
+                ->addSelect('COUNT(t.id) as nGames')
+                ->leftJoin('t.game', 'g')
+                ->groupBy('g.id')
+                ->orderBy('nGames', 'DESC')
+                ->getQuery();
+        
+        return $qb->getResult();
+    }
 }

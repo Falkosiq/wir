@@ -9,7 +9,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Minpc</th>
                 <th>Recpc</th>
@@ -19,7 +18,6 @@
         <tbody>
         {% for game in games %}
             <tr>
-                <td><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
                 <td>{{ game.name }}</td>
                 <td>{{ game.minPc }}</td>
                 <td>{{ game.recPc }}</td>

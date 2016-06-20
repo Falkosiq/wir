@@ -16,7 +16,14 @@
             <li><a href="game">Games</a></li>
             <li><a href="test">Tests</a></li>
             <li><a href="{{ path("pc_my") }}">My PC</a></li>
+            <li><a href="{{ path("most_tested_games") }}">Number of tests per game</a></li>
         </ul>
+    {% else %}
+        Baza danych przechowuje listę procesorów i kart graficznych. Za pomocą tych rekordów oraz liczby reprzentującej ilość pamięci RAM przechowywane
+        są konfiguracje PC. Tabele gier przechowują nazwy gier oraz minimalne i rekomendowane konfiguracje PC. Testy przechowują informacje o tym jakich gier dotyczą, na jakich komputerach zostały przeprowadzone i przez jakich użytkowników oraz jakie osiągneli FPS.<br><br>
+        Lista gier jest sortowana od najmniej wymagających pod względem wyników benchmarkowych komponentów (cpu i gpu) minimalnej konfiguracji PC. Jeżeli zalogowany użytkownik kliknie "will it run?"
+        to otrzyma informację czy na komputerze, który do siebie przypisał będzie działać dana gra.<br><br>
+        Można także sprawdzić ile razy każda z gier była testowana, gry na podstronie "Number of tests per game" są posortowane od najwięcej razy testowanych.
     {% endif %}
 {% endblock %}    
     

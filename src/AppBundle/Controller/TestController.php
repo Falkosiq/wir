@@ -139,4 +139,20 @@ class TestController extends Controller
             ->getForm()
         ;
     }
+    
+    /**
+     * 
+     * @Route("/mtg/", name="most_tested_games")
+     * 
+     */
+    public function mtgAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $tests = $em->getRepository('AppBundle:Test')->findNumberOfTests();
+        
+        return $this->render('test/mtg.html.twig', array(
+            'tests' => $tests,
+        ));
+    }
 }

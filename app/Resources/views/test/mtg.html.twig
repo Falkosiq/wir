@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <h1>Number of tests per game</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Game</th>
+                <th>Number of tests</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for test in tests %}
+            <tr>
+                <td>{{ test.0 }}</td>
+                <td>{{ test.nGames }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

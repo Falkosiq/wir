@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class GameRepository extends EntityRepository
 {
+    public function findInOrderByMinPc() {
+        $qb = $this->createQueryBuilder('g')
+                ->leftJoin('g.minPc', 'pc')
+                ->leftJoin('pc.cpu', 'cpu')
+                ->leftJoin('pc.gpu', 'gpu')
+                ->orderBy('cpu.score + gpu.score', 'ASC')
+                ->getQuery();
+        return $qb->getResult();
+    }
 }

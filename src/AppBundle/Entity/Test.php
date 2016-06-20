@@ -228,4 +228,9 @@ class Test
     {
         return $this->settings;
     }
+    
+    public function __toString()
+    {
+        return $this->game->getName();
+    }
 }
